@@ -1,0 +1,54 @@
+:root {
+    --border-radius: 10px;
+}
+
+body {
+    min-width: 450px;
+}
+
+.container{
+    background: grey;
+    float: none;
+}
+
+.container .slots{
+    display: grid;
+    width: 100%;
+    height: 330px;
+    grid-template-columns: 100px 100px 100px;
+    grid-template-rows: 100px 100px 100px;
+    column-gap: 10px;
+    row-gap: 10px;
+    justify-content: center;
+}
+
+
+[data-status="apple"] {
+    background: url("/static/img/flag.png");
+    width: 100%;
+    height: 100%;
+}
+
+[data-status="kiwi"] {
+    background: url("/static/img/closed-field.png");
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+}
+
+[data-status="banana"] {
+    background: url("/static/img/open-field.png");
+    width: 100%;
+    height: 100%;
+}
+
+[data-status="cherry"] {
+    background: url("/static/img/mine.png");
+    width: 100%;
+    height: 100%;
+}
+
+.start-button > img {
+    height: 10%;
+    width: 10%;
+}

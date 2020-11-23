@@ -8,14 +8,18 @@ const game = {
 
     insertImg: function() {
         let img = slotImg;
-        console.log(img)
-        const randomElement = img[Math.floor(Math.random() * img.length)];
         let slots = document.querySelectorAll(".slot");
-        for (let slot of slots){
-            slot.dataset.status = img[Math.floor(Math.random() * img.length)];
+        let anim = setInterval(setImage, 100, slots)
+        setTimeout(function () {
+            clearInterval(anim)
+        }, 3000)
+        function setImage(slots) {
+            for (let slot of slots) {
+                slot.dataset.status = img[Math.floor(Math.random() * img.length)];
+            }
         }
-    }
 
+    }
 }
 
 

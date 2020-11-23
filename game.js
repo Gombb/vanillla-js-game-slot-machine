@@ -1,7 +1,7 @@
 const game = {
     const: slotImg = ["apple", "cherry", "banana", "kiwi"],
     init: function() {
-        const slotButton = document.querySelector(".button")
+        const slotButton = document.querySelector(".start-button")
         slotButton.addEventListener("click", this.insertImg)
 
     },

@@ -28,31 +28,6 @@ body {
 }
 
 
-[data-status="apple"] {
-    background: url("/img/flag.png");
-    width: 100%;
-    height: 100%;
-}
-
-[data-status="kiwi"] {
-    background: url("/img/closed-field.png");
-    width: 100%;
-    height: 100%;
-    justify-content: center;
-}
-
-[data-status="banana"] {
-    background: url("/img/open-field.png");
-    width: 100%;
-    height: 100%;
-}
-
-[data-status="cherry"] {
-    background: url("/img/mine.png");
-    width: 100%;
-    height: 100%;
-}
-
 .start-button > img {
     height: 10%;
     width: 10%;

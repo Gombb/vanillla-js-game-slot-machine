@@ -9,24 +9,47 @@ window.onload = function() {
             let stopButton = document.getElementById("button-stop");
             var roller;
 
-            stopButton.addEventListener("click", stopReels);
-            startButton.addEventListener("click", startRolling);
+            stopButton.addEventListener("click", stopSpin);
+            startButton.addEventListener("click", startSpin);
 
 
-            function startRolling() {
+            function startSpin () {
                 slot0.classList.add("motion");
-                roller = setInterval(rollReels, 100);
+                roller = setInterval(spin, 30);
             }
 
             var newPos = 4;
-            function rollReels() {
-                newPos = newPos + 40;
+            function spin () {
+                if (newPos == 1374) {
+                    newPos = 4;
+                } else {
+                    newPos = newPos + 10;
+                }
                 slot0.style.backgroundPositionY = newPos + "px";
             }
 
-            function stopReels() {
+            function stopSpin () {
+                slot0.style.backgroundPositionY = 4 + "px";
                 slot0.classList.remove("motion");
                 clearInterval(roller);
+                var x = 4;
+                roller = setInterval(function () {
+                    if (newPos == 1374) {
+                        newPos = 4;
+                    } else {
+                        newPos = newPos + 5;
+                    }
+                    slot0.style.backgroundPositionY = newPos + "px";
+                    if (++x === 74) {
+                        window.clearInterval(roller);
+                    }
+                }, 30)
+                console.log(pixelToInt(slot0.style.backgroundPositionY));
+            }
+
+            function pixelToInt (valueToParse) {
+                let extractedValue = valueToParse.replace("px", "");
+                return extractedValue * 1;
             }
         },
 

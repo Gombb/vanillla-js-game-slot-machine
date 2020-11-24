@@ -21,7 +21,7 @@
 .slot {
 	background:url("img/reel_normal.png") repeat-y;
 	width:86px;
-	height:70px;
+	height:210px;
 	float:left;
 	border:1px solid #000;
 	background-position-y: 4px;
@@ -32,6 +32,6 @@
     background: url("img/reel_blur.png") repeat-y;
 }
 
-.button-start {
+#button-start {
     background-color: bisque;
 }

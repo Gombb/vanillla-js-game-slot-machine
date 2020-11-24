@@ -1,16 +1,22 @@
-initGame();
+window.onload = function() {
+    const game = {
+    init: function () {
+        let slots = document.getElementsByClassName("slot");
+        this.rollReel(slots[0]);
+        this.rollReel(slots[1]);
+        this.rollReel(slots[2]);
 
-function initGame() {
-    let slots = document.getElementsByClassName("slot");
-    let newPos = 0;
-    setInterval(function (){
-        newPos = newPos + 30;
-        slots[0].style.backgroundPositionY = newPos + "px";
-        slots[1].style.backgroundPositionY = newPos + "px";
-        slots[2].style.backgroundPositionY = newPos + "px";
-    }, 100);
+    },
 
+    rollReel: function (slot) {
+        let newPos = 0;
+        setInterval(function (){
+            newPos = newPos + 30;
+            slot.style.backgroundPositionY = newPos + "px";
+        }, 100);
+    },
 
+    };
 
+    game.init();
 }
-

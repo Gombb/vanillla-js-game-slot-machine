@@ -21,12 +21,15 @@ body {
 .container .row .slot{
     background: url("img/reel_normal.png") repeat-y;
 	width:86px;
-	height:70px;
+	height:220px;
 	border: 1px solid #000;
 	background-position-y: 4px;
     background-position-x: 0;
 }
 
+.motion {
+    background: url("img/reel_blur.png") repeat-y;
+}
 
 .start-button > img {
     height: 10%;

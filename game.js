@@ -4,9 +4,11 @@ const game = {
         const slotButton = document.querySelector(".start-button")
         slotButton.addEventListener("click", this.insertImg)
 
+
     },
 
     insertImg: function() {
+        document.getElementById('balance').stepDown(10)
         let img = slotImg;
         let slots = document.querySelectorAll(".slot");
         let newPos = 0;
@@ -22,10 +24,18 @@ const game = {
             slots[7].style.backgroundPositionY = newPos + "px";
             slots[8].style.backgroundPositionY = newPos + "px";
         }, 100);
-    }
 
+    }
 }
 
+
+function depositHundred(){
+        document.getElementById('balance').stepUp(100)
+        }
+
+function depositFifty(){
+        document.getElementById('balance').stepUp(50)
+        }
 
 
 game.init();

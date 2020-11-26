@@ -1,6 +1,8 @@
 body{
     min-width: 450px;
-    background-image: url("eugenia-vorontsova-promo-bg1.jpg");
+   background-image: url("eugenia-vorontsova-promo-bg1.jpg");
+  /*  background-image: url("https://images.unsplash.com/photo-1537154835319-14f43d91ea98?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80"); */
+
     background-size: cover;
     justify-content: center;
 }
@@ -8,22 +10,22 @@ body{
 
 .container{
     position: fixed;
-    left: 37%;
-    top: 37%;
+    left: 35%;
+    top: 25%;
     width: 30em;
-    background: white;
+    background: purple;
     display: flex;
     flex-direction: column;
     border-width: 10px;
     border-style: outset;
-    border-color: black;
+    border-color: lawngreen;
 }
 
 .text{
     text-align: center;
     width: 700px;
     margin: 0 auto ;
-    background-color: darkred;
+    background-color: purple;
     padding: 20px;
 }
 
@@ -90,4 +92,19 @@ body{
 
 [data-status = "javascript"] {
     background: url("/img/javascript_cut.png");
+}
+
+.bet-size{
+    width: 20%;
+    float: right;
+}
+
+.deposit{
+    width: 20%;
+    float: right;
+}
+
+.status{
+    color: white;
+    float: right;
 }

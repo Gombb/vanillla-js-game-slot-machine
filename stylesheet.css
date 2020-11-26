@@ -43,13 +43,18 @@ body {
     100%{   color: greenyellow;    }
 }
 
-.container .row {
+.row {
+    justify-content: center;
     display: flex;
     margin: 0 auto;
 }
 
-.container .row .slot{
-    background: url("img/reel_normal.png") repeat-y;
+.col{
+    width: 100px;
+    float: left;
+}
+
+.slot{
 	width:86px;
 	height:230px;
 	border: 1px solid #000;
@@ -57,9 +62,6 @@ body {
     background-position-x: 0;
 }
 
-.motion {
-    background: url("img/reel_blur.png") repeat-y;
-}
 
 .start-button > img {
     height: 20%;

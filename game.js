@@ -18,7 +18,9 @@ wallet = {
         console.log("balance decreased by " + amount);
     },
     depositToBalance: function () {
+        let blinkText = document.querySelector(".blinking")
         let amount = parseInt(window.prompt("Deposit funds:"));
+        blinkText.dataset.status = "hide";
         wallet.increaseBalance(amount);
     },
     initAdultTheme: function () {
@@ -42,35 +44,48 @@ soundEffects = {
     }
 }
 
+statusText = {
+    statusElement: document.querySelector(".status-text"),
+    disappearingText: function(text){
+        document.querySelector(".blinking").dataset.status = "hide"
+        this.writeText(text)
+        setTimeout(this.clearText, 1250, text)
+    },
+    clearText: function(){
+        statusText.statusElement.innerHTML = ""
+    },
+    writeText: function(text){
+        statusText.statusElement.innerHTML = text
+    }
+}
 
 function init(){
+    document.getElementById("user-balance").readOnly=true;
     const slotButton = document.querySelector(".start-button");
     const depositButton = document.querySelector(".deposit");
     slotButton.addEventListener("click", this.initSpin);
     depositButton.addEventListener("click", wallet.depositToBalance)
     let balance = document.getElementById("user-balance");
     balance.value = wallet.userBalance
-    let ageConfirm = prompt("are you older then 18?")
-    if (ageConfirm === "yes") wallet.initAdultTheme()
+    //let ageConfirm = prompt("are you older then 18?")
+    //if (ageConfirm === "yes") wallet.initAdultTheme()
 }
-
-
 
 function initSpin () {
     const imgArr = ["javascript", "python", "c++", "java", "psql"];
     let slots = document.querySelectorAll(".slot");
     let betSize = document.getElementById("bet-size").value;
-    if (wallet.userBalance -betSize < 0) {
-        alert("GET MORE BET MORE")
+    if (wallet.userBalance -betSize < 0 || betSize === "0") {
+        statusText.disappearingText("GET MORE BET MORE")
     } else {
+        statusText.disappearingText("You bet " + betSize + "$")
         wallet.decreaseBalance(betSize)
         mixSlots(slots)
     }
 
 
-
     function mixSlots(slots) {
-        let anim = setInterval(setImage, 175, slots);
+        let anim = setInterval(setImage, 125, slots);
         setTimeout(function () {
             clearInterval(anim)
             winCondition(betSize)
@@ -133,13 +148,17 @@ function winCondition (betSize) {
         pot = pot + betSize * multiplier;
         winningStreak ++;
     }
-    if (winningStreak >= 2) pot = pot *2
-    if (pot > 0 ) {
+    if (winningStreak >= 2) {
+        pot = pot * 2
+    }
+    if (pot > 0 && winningStreak < 2) {
+        statusText.disappearingText("You won "+ pot.toString() +"$")
+        wallet.increaseBalance(pot)
         soundEffects.playEffect(soundEffects.coin)
     } else {
+        statusText.disappearingText("You lost "+ betSize + "$")
         soundEffects.playEffect(soundEffects.lose)
     }
-    console.log("turn-end")
 }
 
 

@@ -36,10 +36,11 @@ function init(){
 function initSpin () {
     const imgArr = ["javascript", "python", "c++", "java", "psql"];
     let slots = document.querySelectorAll(".slot");
-    if (wallet.userBalance <= 0) {
+    let betSize = parseInt(prompt("betsize:"))
+    if (wallet.userBalance -betSize < 0) {
         alert("GET MORE BET MORE")
     } else {
-        wallet.decreaseBalance(5)
+        wallet.decreaseBalance(betSize)
         mixSlots(slots)
     }
 
@@ -49,7 +50,7 @@ function initSpin () {
         let anim = setInterval(setImage, 100, slots);
         setTimeout(function () {
             clearInterval(anim)
-            winCondition()
+            winCondition(betSize)
         }, 3000)
         function setImage(slots) {
             for (let slot of slots) {
@@ -60,8 +61,11 @@ function initSpin () {
 }
 
 
-function winCondition () {
-    let slots = document.querySelectorAll(".slot")
+function winCondition (betSize) {
+    let slots = document.querySelectorAll(".slot");
+    const multiplier = 2;
+    let winningStreak = 0;
+    let pot = 0
     if (slots[0].dataset.status === "none") return
     const allEqual = arr => arr.every(v => v === arr[0])
     let status0 = slots[0].dataset.status;
@@ -74,29 +78,39 @@ function winCondition () {
     let status7 = slots[7].dataset.status;
     let status8 = slots[8].dataset.status;
     if (allEqual([status0, status1, status2])) {
-        wallet.increaseBalance(1);
+        pot = pot + betSize * multiplier;
+        winningStreak ++;
     }
     if (allEqual([status3, status4, status5])) {
-        wallet.increaseBalance(1);
+        pot = pot + betSize * multiplier;
+        winningStreak ++;
     }
     if (allEqual([status6, status7, status8])) {
-        wallet.increaseBalance(1);
+        pot = pot + betSize * multiplier;
+        winningStreak ++;
     }
     if (allEqual([status0, status3, status6])) {
-        wallet.increaseBalance(1);
+        pot = pot + betSize * multiplier;
+        winningStreak ++;
     }
     if (allEqual([status1, status4, status7])) {
-        wallet.increaseBalance(1);
+        pot = pot + betSize * multiplier;
+        winningStreak ++;
     }
     if (allEqual([status2, status5, status8])) {
-        wallet.increaseBalance(1);
+        pot = pot + betSize * multiplier;
+        winningStreak ++;
     }
     if (allEqual([status0, status4, status8])) {
-        wallet.increaseBalance(1);
+        pot = pot + betSize * multiplier;
+        winningStreak ++;
     }
     if (allEqual([status6, status4, status2])) {
-        wallet.increaseBalance(1);
+        pot = pot + betSize * multiplier;
+        winningStreak ++;
     }
+    if (winningStreak >= 2) pot = pot *2
+    if (pot > 0 ) wallet.increaseBalance(pot)
     console.log("turn-end")
 }
 

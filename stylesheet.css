@@ -1,0 +1,52 @@
+.row {
+    justify-content: center;
+    display: flex;
+    margin: 0 auto;
+}
+
+.col {
+    width: 100px;
+    float: left;
+}
+
+.slot {
+
+	width:100px;
+	height:100px;
+	float:left;
+	border:1px solid #000;
+	background-position-y: 4px;
+    background-position-x: 0;
+}
+
+
+.start-button > img {
+    height: 10%;
+    width: 10%;
+}
+
+
+[data-status = "none"] {
+    background: url("/img/python_cut.png");
+}
+
+
+[data-status = "psql" ] {
+    background: url("/img/psql_cut.png");
+}
+
+[data-status = "python"] {
+    background: url("/img/python_cut.png");
+}
+
+[data-status = "c++"] {
+    background: url("/img/c++_cut.jpg");
+}
+
+[data-status = "java"] {
+    background: url("/img/java_cut.jpg");
+}
+
+[data-status = "javascript"] {
+    background: url("/img/javascript_cut.png");
+}

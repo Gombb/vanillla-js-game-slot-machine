@@ -3,15 +3,19 @@
 <head>
     <title>Javascript Game</title>
     <meta charset="UTF-8">
-
     <!-- http://proger.i-forge.net/The_smallest_transparent_pixel/ -->
     <link rel="icon" href="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=">
     <link rel="stylesheet" href="stylesheet.css">
     <script src="game.js" defer></script>
 </head>
 <body>
-  <div class="deposit">DEPOSIT</div>
-        <div class="bet-size">BETSIZE</div>
+<div class="text">
+ <span class="blinking"> The SlutMachine! </span>
+</div>
+ <div class="deposit">DEPOSIT</div>
+        <div class="bet-size">BETSIZE
+            <input type="text" id="bet-size">
+        </div>
     <div class="container">
         <div class="start-button"><img src="https://img.favpng.com/12/8/16/push-button-red-icon-png-favpng-ffiPVdw5ASt4v8cdZ5nBWSnck.jpg"></div>
 
@@ -32,7 +36,7 @@
         </div>
     </div>
     <div class="status">
-        <input type="text" id="user-balance" value=0 data-allminescount="">
+        Current balance:<input type="text" id="user-balance">
     </div>
 
 

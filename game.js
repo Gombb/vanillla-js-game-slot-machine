@@ -36,7 +36,7 @@ function init(){
 function initSpin () {
     const imgArr = ["javascript", "python", "c++", "java", "psql"];
     let slots = document.querySelectorAll(".slot");
-    let betSize = parseInt(prompt("betsize:"))
+    let betSize = document.getElementById("bet-size").value;
     if (wallet.userBalance -betSize < 0) {
         alert("GET MORE BET MORE")
     } else {

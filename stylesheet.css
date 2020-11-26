@@ -1,13 +1,10 @@
-:root {
-    --border-radius: 10px;
-}
-
-body {
+body{
     min-width: 450px;
     background-image: url("eugenia-vorontsova-promo-bg1.jpg");
     background-size: cover;
     justify-content: center;
 }
+
 
 .container{
     position: fixed;
@@ -30,7 +27,6 @@ body {
     padding: 20px;
 }
 
-
 .blinking{
     animation:blinkingText 1.2s infinite;
     font-size: 6em;
@@ -49,21 +45,49 @@ body {
     margin: 0 auto;
 }
 
-.col{
+.col {
     width: 100px;
     float: left;
 }
 
-.slot{
-	width:86px;
-	height:230px;
-	border: 1px solid #000;
+.slot {
+
+	width:100px;
+	height:100px;
+	float:left;
+	border:1px solid #000;
 	background-position-y: 4px;
     background-position-x: 0;
 }
 
 
 .start-button > img {
-    height: 20%;
-    width: 20%;
+    height: 10%;
+    width: 10%;
+}
+
+
+[data-status = "none"] {
+    background: url("/img/python_cut.png");
+}
+
+
+[data-status = "psql" ] {
+    background: url("/img/psql_cut.png");
+}
+
+[data-status = "python"] {
+    background: url("/img/python_cut.png");
+}
+
+[data-status = "c++"] {
+    background: url("/img/c++_cut.jpg");
+}
+
+[data-status = "java"] {
+    background: url("/img/java_cut.jpg");
+}
+
+[data-status = "javascript"] {
+    background: url("/img/javascript_cut.png");
 }

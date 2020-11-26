@@ -70,7 +70,6 @@ body{
     background: url("/img/trump_cut.png");
 }
 
-
 .slot[data-status="none"][data-adult="false"] {
     background: url("/img/python_cut.png");
 }
@@ -81,10 +80,6 @@ body{
 
 .slot[data-status="psql"][data-adult="false"] {
     background: url("/img/psql_cut.png");
-}
-
-.slot[data-status="psql"][data-adult="false"] {
-    background: url("/img/girl2_cut.png");
 }
 
 .slot[data-status="python"][data-adult="false"] {

@@ -1,3 +1,4 @@
+
 wallet = {
     username: "",
     adult: false,
@@ -29,6 +30,18 @@ wallet = {
 
 }
 
+soundEffects = {
+    win:  [new Audio("sounds/win.mp3")],
+    lose: [new Audio("sounds/lose.mp3")],
+    spin: new Audio("sounds/spin.mp3"),
+    coin: [new Audio("sounds/coin.mp3")],
+    playEffect: function(effect){
+        for (let i=0; i<effect.length; i++){
+            setTimeout(effect[i].play(), 50)
+        }
+    }
+}
+
 
 function init(){
     const slotButton = document.querySelector(".start-button");
@@ -57,12 +70,13 @@ function initSpin () {
 
 
     function mixSlots(slots) {
-        let anim = setInterval(setImage, 100, slots);
+        let anim = setInterval(setImage, 175, slots);
         setTimeout(function () {
             clearInterval(anim)
             winCondition(betSize)
         }, 3000)
         function setImage(slots) {
+            soundEffects.spin.play().then(r => soundEffects.spin.play())
             for (let slot of slots) {
                 slot.dataset.status = imgArr[Math.floor(Math.random() * imgArr.length)];
             }
@@ -120,7 +134,11 @@ function winCondition (betSize) {
         winningStreak ++;
     }
     if (winningStreak >= 2) pot = pot *2
-    if (pot > 0 ) wallet.increaseBalance(pot)
+    if (pot > 0 ) {
+        soundEffects.playEffect(soundEffects.coin)
+    } else {
+        soundEffects.playEffect(soundEffects.lose)
+    }
     console.log("turn-end")
 }
 

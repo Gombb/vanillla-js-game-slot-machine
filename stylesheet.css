@@ -19,7 +19,7 @@ body{
     border-width: 10px;
     border-style: outset;
     border-color: lawngreen;
-    height: 37.5%;
+    height: 39.5%;
 }
 
 .text{
@@ -93,9 +93,13 @@ body{
 }
 
 
-.start-button > img {
-    height: 10%;
-    width: 10%;
+.start-button > button{
+    background-color: transparent;
+    color: ghostwhite;
+    width: 90px;
+    height: 40px;
+    font-weight: bold;
+    font-size: larger;
 }
 
 .bet-size{
@@ -131,7 +135,7 @@ body{
 }
 
 .slot[data-status="psql"][data-adult="true"]{
-    background: url("/img/girl1_cut.png");
+    background: url("/img/girl2_cut.png");
 }
 
 .slot[data-status="psql"][data-adult="false"] {

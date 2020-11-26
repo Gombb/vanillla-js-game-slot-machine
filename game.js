@@ -67,12 +67,12 @@ function init(){
     depositButton.addEventListener("click", wallet.depositToBalance)
     let balance = document.getElementById("user-balance");
     balance.value = wallet.userBalance
-    //let ageConfirm = prompt("are you older then 18?")
-    //if (ageConfirm === "yes") wallet.initAdultTheme()
+    let ageConfirm = prompt("are you older then 18?")
+    if (ageConfirm === "yes") wallet.initAdultTheme()
 }
 
 function initSpin () {
-    const imgArr = ["javascript", "python", "c++", "java", "psql"];
+    const imgArr = ["javascript", "c++", "java", "psql"];
     let slots = document.querySelectorAll(".slot");
     let betSize = document.getElementById("bet-size").value;
     if (wallet.userBalance -betSize < 0 || betSize === "0") {
@@ -150,6 +150,10 @@ function winCondition (betSize) {
     }
     if (winningStreak >= 2) {
         pot = pot * 2
+        statusText.disappearingText("You won "+pot.toString()+"$")
+        soundEffects.playEffect(soundEffects.win)
+        wallet.increaseBalance(pot)
+        return
     }
     if (pot > 0 && winningStreak < 2) {
         statusText.disappearingText("You won "+ pot.toString() +"$")
@@ -159,6 +163,8 @@ function winCondition (betSize) {
         statusText.disappearingText("You lost "+ betSize + "$")
         soundEffects.playEffect(soundEffects.lose)
     }
+    console.log(winningStreak)
+    console.log(pot)
 }
 
 

@@ -105,6 +105,10 @@ body{
 }
 
 .status{
+    display: flex;
     color: white;
-    float: right;
+}
+
+.balance-status{
+    display: flex;
 }

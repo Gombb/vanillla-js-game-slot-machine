@@ -1,3 +1,44 @@
+body{
+    min-width: 450px;
+    background-image: url("eugenia-vorontsova-promo-bg1.jpg");
+    background-size: cover;
+    justify-content: center;
+}
+
+
+.container{
+    position: fixed;
+    left: 37%;
+    top: 37%;
+    width: 30em;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    border-width: 10px;
+    border-style: outset;
+    border-color: black;
+}
+
+.text{
+    text-align: center;
+    width: 700px;
+    margin: 0 auto ;
+    background-color: darkred;
+    padding: 20px;
+}
+
+.blinking{
+    animation:blinkingText 1.2s infinite;
+    font-size: 6em;
+}
+@keyframes blinkingText{
+    0%{     color: greenyellow;    }
+    49%{    color: greenyellow; }
+    60%{    color: transparent; }
+    99%{    color:transparent;  }
+    100%{   color: greenyellow;    }
+}
+
 .row {
     justify-content: center;
     display: flex;

@@ -1,24 +1,32 @@
 wallet = {
-    username : "",
+    username: "",
+    adult: false,
     userBalance: 0,
     increaseBalance: function (amount) {
         let balance = document.getElementById("user-balance");
         let balanceValue = parseInt(balance.value);
         balance.value = balanceValue + amount;
-        wallet.userBalance = balance.value
+        wallet.userBalance = balance.value;
         console.log("balance increased by " + amount);
     },
     decreaseBalance: function (amount) {
         let balance = document.getElementById("user-balance")
         let balanceValue = parseInt(balance.value);
         balance.value = balanceValue - amount;
-        wallet.userBalance = balance.value
+        wallet.userBalance = balance.value;
         console.log("balance decreased by " + amount);
     },
     depositToBalance: function () {
         let amount = parseInt(window.prompt("Deposit funds:"));
-        wallet.increaseBalance(amount)
+        wallet.increaseBalance(amount);
+    },
+    initAdultTheme: function () {
+        let slots = document.querySelectorAll(".slot");
+        for(let slot of slots){
+            slot.dataset.adult = "true";
+        }
     }
+
 }
 
 
@@ -29,6 +37,8 @@ function init(){
     depositButton.addEventListener("click", wallet.depositToBalance)
     let balance = document.getElementById("user-balance");
     balance.value = wallet.userBalance
+    let ageConfirm = prompt("are you older then 18?")
+    if (ageConfirm === "yes") wallet.initAdultTheme()
 }
 
 

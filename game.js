@@ -1,51 +1,118 @@
-const game = {
-    const: slotImg = ["apple", "cherry", "banana", "kiwi"],
-    init: function() {
-        const slotButton = document.querySelector(".start-button")
-        slotButton.addEventListener("click", this.insertImg)
-
-
+wallet = {
+    username : "",
+    userBalance: 0,
+    increaseBalance: function (amount) {
+        let balance = document.getElementById("user-balance");
+        let balanceValue = parseInt(balance.value);
+        balance.value = balanceValue + amount;
+        wallet.userBalance = balance.value
+        console.log("balance increased by " + amount);
     },
-
-    insertImg: function() {
-        document.getElementById('balance').stepDown(10)
-        let img = slotImg;
-        let slots = document.querySelectorAll(".slot");
-        let newPos = 0;
-        setInterval(function (){
-        newPos = newPos + 30;
-            slots[0].style.backgroundPositionY = newPos + "px";
-            slots[1].style.backgroundPositionY = newPos + "px";
-            slots[2].style.backgroundPositionY = newPos + "px";
-            slots[3].style.backgroundPositionY = newPos + "px";
-            slots[4].style.backgroundPositionY = newPos + "px";
-            slots[5].style.backgroundPositionY = newPos + "px";
-            slots[6].style.backgroundPositionY = newPos + "px";
-            slots[7].style.backgroundPositionY = newPos + "px";
-            slots[8].style.backgroundPositionY = newPos + "px";
-        }, 100);
-
+    decreaseBalance: function (amount) {
+        let balance = document.getElementById("user-balance")
+        let balanceValue = parseInt(balance.value);
+        balance.value = balanceValue - amount;
+        wallet.userBalance = balance.value
+        console.log("balance decreased by " + amount);
+    },
+    depositToBalance: function () {
+        let amount = parseInt(window.prompt("Deposit funds:"));
+        wallet.increaseBalance(amount)
     }
 }
 
 
-function depositHundred(){
-        document.getElementById('balance').stepUp(100)
-        }
-
-function depositFifty(){
-        document.getElementById('balance').stepUp(50)
-        }
-
-
-game.init();
+function init(){
+    const slotButton = document.querySelector(".start-button");
+    const depositButton = document.querySelector(".deposit");
+    slotButton.addEventListener("click", this.initSpin);
+    depositButton.addEventListener("click", wallet.depositToBalance)
+    let balance = document.getElementById("user-balance");
+    balance.value = wallet.userBalance
+}
 
 
 
-        /*let anim = setInterval(setImage, 100, slots)
+function initSpin () {
+    const imgArr = ["javascript", "python", "c++", "java", "psql"];
+    let slots = document.querySelectorAll(".slot");
+    let betSize = parseInt(prompt("betsize:"))
+    if (wallet.userBalance -betSize < 0) {
+        alert("GET MORE BET MORE")
+    } else {
+        wallet.decreaseBalance(betSize)
+        mixSlots(slots)
+    }
+
+
+
+    function mixSlots(slots) {
+        let anim = setInterval(setImage, 100, slots);
         setTimeout(function () {
             clearInterval(anim)
+            winCondition(betSize)
         }, 3000)
         function setImage(slots) {
-                //slot.dataset.status = img[Math.floor(Math.random() * img.length)];
-        }*/
+            for (let slot of slots) {
+                slot.dataset.status = imgArr[Math.floor(Math.random() * imgArr.length)];
+            }
+        }
+    }
+}
+
+
+function winCondition (betSize) {
+    let slots = document.querySelectorAll(".slot");
+    const multiplier = 2;
+    let winningStreak = 0;
+    let pot = 0
+    if (slots[0].dataset.status === "none") return
+    const allEqual = arr => arr.every(v => v === arr[0])
+    let status0 = slots[0].dataset.status;
+    let status1 = slots[1].dataset.status;
+    let status2 = slots[2].dataset.status;
+    let status3 = slots[3].dataset.status;
+    let status4 = slots[4].dataset.status;
+    let status5 = slots[5].dataset.status;
+    let status6 = slots[6].dataset.status;
+    let status7 = slots[7].dataset.status;
+    let status8 = slots[8].dataset.status;
+    if (allEqual([status0, status1, status2])) {
+        pot = pot + betSize * multiplier;
+        winningStreak ++;
+    }
+    if (allEqual([status3, status4, status5])) {
+        pot = pot + betSize * multiplier;
+        winningStreak ++;
+    }
+    if (allEqual([status6, status7, status8])) {
+        pot = pot + betSize * multiplier;
+        winningStreak ++;
+    }
+    if (allEqual([status0, status3, status6])) {
+        pot = pot + betSize * multiplier;
+        winningStreak ++;
+    }
+    if (allEqual([status1, status4, status7])) {
+        pot = pot + betSize * multiplier;
+        winningStreak ++;
+    }
+    if (allEqual([status2, status5, status8])) {
+        pot = pot + betSize * multiplier;
+        winningStreak ++;
+    }
+    if (allEqual([status0, status4, status8])) {
+        pot = pot + betSize * multiplier;
+        winningStreak ++;
+    }
+    if (allEqual([status6, status4, status2])) {
+        pot = pot + betSize * multiplier;
+        winningStreak ++;
+    }
+    if (winningStreak >= 2) pot = pot *2
+    if (pot > 0 ) wallet.increaseBalance(pot)
+    console.log("turn-end")
+}
+
+
+init()

@@ -68,32 +68,6 @@ body{
     width: 10%;
 }
 
-
-[data-status = "none"] {
-    background: url("/img/python_cut.png");
-}
-
-
-[data-status = "psql" ] {
-    background: url("/img/psql_cut.png");
-}
-
-[data-status = "python"] {
-    background: url("/img/python_cut.png");
-}
-
-[data-status = "c++"] {
-    background: url("/img/c++_cut.jpg");
-}
-
-[data-status = "java"] {
-    background: url("/img/java_cut.jpg");
-}
-
-[data-status = "javascript"] {
-    background: url("/img/javascript_cut.png");
-}
-
 .bet-size{
     width: 20%;
     float: right;
@@ -112,3 +86,54 @@ body{
 .balance-status{
     display: flex;
 }
+
+.slot[data-status="none"][data-adult="true"] {
+    background: url("/img/trump_cut.png");
+}
+
+.slot[data-status="none"][data-adult="false"] {
+    background: url("/img/python_cut.png");
+}
+
+.slot[data-status="psql"][data-adult="true"]{
+    background: url("/img/girl1_cut.png");
+}
+
+.slot[data-status="psql"][data-adult="false"] {
+    background: url("/img/psql_cut.png");
+}
+
+.slot[data-status="python"][data-adult="false"] {
+    background: url("/img/python_cut.png");
+}
+
+.slot[data-status="python"][data-adult="true"] {
+    background: url("/img/girl3_cut.png");
+}
+
+.slot[data-status="c++"][data-adult="false"] {
+    background: url("/img/c++_cut.jpg");
+}
+
+.slot[data-status="c++"][data-adult="true"] {
+    background: url("/img/girl4_cut.png");
+}
+
+.slot[data-status="java"][data-adult="false"]{
+    background: url("/img/java_cut.jpg");
+}
+
+.slot[data-status="java"][data-adult="true"]{
+    background: url("/img/girl5_cut.png");
+}
+
+.slot[data-status="javascript"][data-adult="false"] {
+    background: url("/img/javascript_cut.png");
+}
+
+.slot[data-status="javascript"][data-adult="true"] {
+    background: url("/img/girl6_cut.png");
+}
+
+
+

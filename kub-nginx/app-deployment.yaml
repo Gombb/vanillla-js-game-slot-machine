@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: js-app
+  namespace: monitoring
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: js-app
+  template:
+    metadata:
+      labels:
+        app: js-app
+    spec:
+      containers:
+      - app:
+        image: nginx:latest
+        imagePullPolicy: Always
+        name: js-app
+        ports:
+          - containerPort: 80

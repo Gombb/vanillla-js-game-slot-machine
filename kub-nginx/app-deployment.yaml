@@ -2,9 +2,9 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: js-app
-  namespace: monitoring
+  namespace: default
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: js-app
@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - app:
-        image: nginx:latest
+        image: public.ecr.aws/u0o2c3o6/nginx-js-static:latest
         imagePullPolicy: Always
         name: js-app
         ports:

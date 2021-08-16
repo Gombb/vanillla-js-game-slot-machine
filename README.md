@@ -35,14 +35,18 @@ Recently, I studied the basics of containerized app deployment. Therefore, I dec
         - running **Grafana** and **Prometheus** require 5 worker nodes of t3micro instances
     - ***docker*** installed
 
-- The Game can be played on localhost. The suggested way to do this is by installing ***npm***.
+- The Game can be played on localhost. The suggested way to do this is by using python3 http.server.
 
 ## How to use the program
-- If all the installation prequisites are met for AWS deployment. The process can be initiated by running ***bash init_cluster.sh*** in working directory. After a few minutes the game is reachable on the public DNS AWS gives to loadbalancer.
+- If all the installation prequisites are met for AWS deployment. The process can be initiated by running ***bash init_cluster.sh*** in working directory. After a few minutes the game is reachable on the public DNS AWS gives to the loadbalancer.
+- **Grafana**  is reachable on ***port 3000***
 
-- Running the program on localhost is possible by executing the following commands in thw working directory:
+
+- Running the program on localhost is possible by executing the following commands in the working directory:
     - cd /app
-    - npm run
+    - python3 -m http-server 8888
+- Now the game is accessible by typing localhost:8888 in the browser.
+
 
 
 

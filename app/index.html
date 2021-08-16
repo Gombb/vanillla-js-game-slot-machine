@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Javascript Game</title>
+    <meta charset="UTF-8">
+    <!-- http://proger.i-forge.net/The_smallest_transparent_pixel/ -->
+    <link rel="icon" href="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=">
+    <link rel="stylesheet" href="stylesheet.css">
+    <script src="game.js" defer></script>
+</head>
+<body>
+    <div class="text">
+        <div class="status-text"></div>
+        <span class="blinking" data-status="show"> The SlotMachine! </span>
+    </div>
+    <div class="container">
+        <div class="start-button"><button>SPIN</button></div>
+        <div class="row">
+            <div class="slot" data-status="none" data-adult="false"></div>
+            <div class="slot" data-status="none" data-adult="false"></div>
+            <div class="slot" data-status="none" data-adult="false"></div>
+        </div>
+        <div class="row">
+            <div class="slot" data-status="none" data-adult="false"></div>
+            <div class="slot" data-status="none" data-adult="false"></div>
+            <div class="slot" data-status="none" data-adult="false"></div>
+        </div>
+        <div class="row">
+            <div class="slot" data-status="none" data-adult="false"></div>
+            <div class="slot" data-status="none" data-adult="false"></div>
+            <div class="slot" data-status="none" data-adult="false"></div>
+        </div><br>
+    <div class="status">
+         <button class="deposit">DEPOSIT</button> Balance: <input type="text" id="user-balance">
+    </div>
+        <div class="balance-status" contenteditable="false">
+        <button class="bet-size">BETSIZE
+        </button><input type="text" id="bet-size" value="0"></div>
+    </div>
+
+
+
+</body>
+</html>

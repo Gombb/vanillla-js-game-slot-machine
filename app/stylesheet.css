@@ -1,0 +1,178 @@
+body{
+    min-width: 450px;
+   background-image: url("/img/background.jpg");
+  /*  background-image: url("https://images.unsplash.com/photo-1537154835319-14f43d91ea98?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80"); */
+
+    background-size: cover;
+    justify-content: center;
+}
+
+
+.container{
+    position: fixed;
+    left: 37%;
+    top: 25%;
+    width: 31em;
+    background: purple;
+    display: flex;
+    flex-direction: column;
+    border-width: 10px;
+    border-style: outset;
+    border-color: lawngreen;
+    height: 39.5%;
+}
+
+.text{
+    text-align: center;
+    width: 700px;
+    margin: 0 auto ;
+    background-color: purple;
+    padding: 20px;
+    height: 145px;
+}
+
+#user-balance{
+    alignment: center;
+    width: 60px;
+    background-color: transparent;
+    color: greenyellow;
+    font-weight: bold;
+}
+
+#bet-size{
+    alignment: center;
+    width: 60px;
+    background-color: transparent;
+    color: greenyellow;
+    font-weight: bold;
+}
+
+
+.text .status-text{
+    font-size: 50px;
+    color:greenyellow;
+}
+
+.blinking[data-status="show"]{
+    animation:blinkingText 1.2s infinite;
+    font-size: 6em;
+}
+
+.text .blinking[data-status="hide"]{
+    color: transparent;
+
+}
+
+@keyframes blinkingText{
+    0%{     color: greenyellow;    }
+    49%{    color: greenyellow; }
+    60%{    color: transparent; }
+    99%{    color:transparent;  }
+    100%{   color: greenyellow;    }
+}
+
+.row {
+    justify-content: center;
+    display: flex;
+    margin: 0 auto;
+}
+
+.col {
+    width: 100px;
+    float: left;
+}
+
+.slot {
+
+	width:100px;
+	height:100px;
+	float:left;
+	border:1px solid #000;
+	background-position-y: 4px;
+    background-position-x: 0;
+}
+
+
+.start-button > button{
+    background-color: transparent;
+    color: ghostwhite;
+    width: 90px;
+    height: 40px;
+    font-weight: bold;
+    font-size: larger;
+}
+
+.bet-size{
+    width: 20%;
+    float: right;
+    background-color: transparent;
+    color:white;
+}
+
+.deposit{
+    width: 20%;
+    float: right;
+    background-color: transparent;
+    color:white;
+}
+
+.status{
+    display: flex;
+    color:whitesmoke;
+}
+
+.balance-status{
+    display: flex;
+    color: white;
+}
+
+.slot[data-status="none"][data-adult="true"] {
+    background: url("/img/trump_cut.png");
+}
+
+.slot[data-status="none"][data-adult="false"] {
+    background: url("/img/python_cut.png");
+}
+
+.slot[data-status="psql"][data-adult="true"]{
+    background: url("/img/girl2_cut.png");
+}
+
+.slot[data-status="psql"][data-adult="false"] {
+    background: url("/img/psql_cut.png");
+}
+
+.slot[data-status="python"][data-adult="false"] {
+    background: url("/img/python_cut.png");
+}
+
+.slot[data-status="python"][data-adult="true"] {
+    background: url("/img/girl3_cut.png");
+}
+
+.slot[data-status="c++"][data-adult="false"] {
+    background: url("/img/c++_cut.jpg");
+}
+
+.slot[data-status="c++"][data-adult="true"] {
+    background: url("/img/girl4_cut.png");
+}
+
+.slot[data-status="java"][data-adult="false"]{
+    background: url("/img/java_cut.jpg");
+}
+
+.slot[data-status="java"][data-adult="true"]{
+    background: url("/img/girl5_cut.png");
+}
+
+.slot[data-status="javascript"][data-adult="false"] {
+    background: url("/img/javascript_cut.png");
+}
+
+.slot[data-status="javascript"][data-adult="true"] {
+    background: url("/img/girl6_cut.png");
+}
+
+
+
